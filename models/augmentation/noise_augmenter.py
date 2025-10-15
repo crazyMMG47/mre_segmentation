@@ -100,7 +100,7 @@ class NoiseProfileManager:
         """Check if noise profile exists for subject."""
         return self.get_profile(subject_id) is not None
     
-    
+
 class NoiseAugmenter:
     """Applies realistic MRE noise using relative noise injection."""
     
@@ -114,7 +114,7 @@ class NoiseAugmenter:
         Args:
             noise_manager: NoiseProfileManager instance
             noise_strength_range: Noise strength as fraction of image std (e.g., 0.1 = 10%)
-            apply_prob: Probability of applying noise
+            apply_prob: Probability of applying noise (reduced to 0.4 for medical images)
         """
         self.noise_manager = noise_manager
         self.noise_strength_range = noise_strength_range
@@ -125,7 +125,7 @@ class NoiseAugmenter:
                  subject_id: str,
                  is_2d: bool = False) -> Tuple[np.ndarray, bool]:
         """
-        Apply relative noise to image.
+        Apply relative noise to image (backward compatible).
         
         Args:
             image: Input image (2D or 3D numpy array)
@@ -139,44 +139,89 @@ class NoiseAugmenter:
         if random.random() > self.apply_prob:
             return image, False
         
-        # Get noise profile
-        profile = self.noise_manager.get_profile(subject_id)
-        
-        # For subjects without profile, simply return original image.
-        if profile is None:
+        # Load and apply noise
+        noise_field = self.load_field(subject_id, is_2d)
+        if noise_field is None:
             return image, False
         
-        # Match noise dimensions to image
-        noise = self._match_dimensions(image, profile['noise'], is_2d)
+        # Match dimensions
+        noise_field = self._match_dimensions(image, noise_field)
         
-        # Apply relative noise
-        noisy_image = self._apply_relative_noise(image, noise)
+        # Apply noise
+        noisy_image = self.add(image, noise_field=noise_field)
         
         return noisy_image, True
     
+    def load_field(self, subject_id: str, is_2d: bool = False) -> Optional[np.ndarray]:
+        """
+        Load noise field for a subject (without resizing).
+        
+        Args:
+            subject_id: Subject identifier
+            is_2d: Whether to extract 2D slice from 3D noise
+        
+        Returns:
+            Noise field array or None if profile not found
+        """
+        # Get noise profile
+        profile = self.noise_manager.get_profile(subject_id)
+        if profile is None:
+            return None
+        
+        noise_profile = profile['noise']
+        
+        # Extract 2D slice if needed
+        if is_2d and noise_profile.ndim == 3:
+            mid_slice = noise_profile.shape[2] // 2
+            return noise_profile[:, :, mid_slice]
+        
+        return noise_profile
+    
+    def add(self, 
+            image: np.ndarray, 
+            subject_id: Optional[str] = None,
+            is_2d: bool = False,
+            noise_field: Optional[np.ndarray] = None) -> np.ndarray:
+        """
+        Add noise to image using a pre-loaded or fresh noise field.
+        
+        Args:
+            image: Input image
+            subject_id: Subject identifier (used if noise_field is None)
+            is_2d: Whether image is 2D
+            noise_field: Pre-loaded and possibly pre-warped noise field
+        
+        Returns:
+            Noisy image
+        """
+        # Load noise field if not provided
+        if noise_field is None:
+            if subject_id is None:
+                return image
+            noise_field = self.load_field(subject_id, is_2d)
+            if noise_field is None:
+                return image
+        
+        # Match dimensions to image
+        noise_field = self._match_dimensions(image, noise_field)
+        
+        # Apply relative noise
+        noisy_image = self._apply_relative_noise(image, noise_field)
+        
+        return noisy_image
+    
     def _match_dimensions(self, 
                           image: np.ndarray, 
-                          noise_profile: np.ndarray,
-                          is_2d: bool) -> np.ndarray:
-        """Match noise profile dimensions to image."""
-        
-        if is_2d:
-            # Extract 2D slice from 3D noise if needed
-            if noise_profile.ndim == 3:
-                mid_slice = noise_profile.shape[2] // 2
-                noise = noise_profile[:, :, mid_slice]
-            else:
-                noise = noise_profile
-        else:
-            noise = noise_profile
+                          noise_field: np.ndarray) -> np.ndarray:
+        """Match noise field dimensions to image."""
         
         # Resize if shapes don't match
-        if noise.shape != image.shape:
+        if noise_field.shape != image.shape:
             zoom_factors = tuple(img_dim / noise_dim 
-                                for img_dim, noise_dim in zip(image.shape, noise.shape))
-            noise = zoom(noise, zoom_factors, order=1)
+                                for img_dim, noise_dim in zip(image.shape, noise_field.shape))
+            noise_field = zoom(noise_field, zoom_factors, order=1)
         
-        return noise
+        return noise_field
     
     def _apply_relative_noise(self, image: np.ndarray, noise: np.ndarray) -> np.ndarray:
         """
