@@ -1,18 +1,21 @@
 # 2 basic augmentation classes for medical images 
 # spatial augmenter (rotation and scaling only)
 # intensity augmenter (brightness, contrast only)
+# let's keep the intensity augmenter for now
+# since we have the noise augmenter, we can skip intensity augmentation now
+
 import numpy as np
 import random
 from scipy.ndimage import zoom, rotate
-from typing import Tuple
+from typing import Tuple, Optional, Dict, Any
 
 
 class SpatialAugmenter:
-    """Spatial augmentations for medical images (rotation and scaling only)."""
+    """Spatial augmentations for medical images with parameter tracking."""
     
     def __init__(self,
-                 rotation_range: Tuple[float, float] = (-0.8, 0.8), # conservative rotation range
-                 scale_range: Tuple[float, float] = (0.95, 1.05), 
+                 rotation_range: Tuple[float, float] = (-10, 10),
+                 scale_range: Tuple[float, float] = (0.95, 1.05),
                  is_2d: bool = False):
         """
         Initialize spatial augmenter.
@@ -26,29 +29,91 @@ class SpatialAugmenter:
         self.scale_range = scale_range
         self.is_2d = is_2d
     
-    def __call__(self, image: np.ndarray, label: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
-        """Apply spatial augmentations to image-label pair."""
+    def __call__(self, 
+                 image: np.ndarray, 
+                 label: np.ndarray,
+                 return_params: bool = False) -> Tuple[np.ndarray, np.ndarray, Optional[Dict[str, Any]]]:
+        """
+        Apply spatial augmentations to image-label pair.
+        
+        Args:
+            image: Input image
+            label: Input label
+            return_params: If True, return transformation parameters
+        
+        Returns:
+            If return_params=False: (image, label)
+            If return_params=True: (image, label, params_dict)
+        """
+        params = {}
         
         # Random rotation
         if self.rotation_range != (0, 0):
             angle = random.uniform(*self.rotation_range)
-            image, label = self._rotate(image, label, angle)
+            axes = random.choice([(1, 2), (0, 2), (0, 1)]) if not self.is_2d else None
+            image, label = self._rotate(image, label, angle, axes)
+            params['rotation'] = {'angle': angle, 'axes': axes}
+        else:
+            params['rotation'] = None
         
         # Random scaling
         if self.scale_range != (1.0, 1.0):
             scale = random.uniform(*self.scale_range)
             image, label = self._scale(image, label, scale)
+            params['scale'] = {'factor': scale}
+        else:
+            params['scale'] = None
         
-        return image, label
+        if return_params:
+            return image, label, params
+        else:
+            return image, label
     
-    def _rotate(self, image: np.ndarray, label: np.ndarray, angle: float) -> Tuple[np.ndarray, np.ndarray]:
+    def apply_to(self, 
+                 array: np.ndarray, 
+                 params: Dict[str, Any], 
+                 is_label: bool = False) -> np.ndarray:
+        """
+        Apply same transformation to another array (e.g., noise field). 
+        This is used in the augmentation pipeline wrapper.
+        
+        Returns: 
+            Transformed array
+        """
+        order = 0 if is_label else 1
+        
+        # Apply rotation
+        if params.get('rotation') is not None:
+            rot_params = params['rotation']
+            angle = rot_params['angle']
+            axes = rot_params['axes']
+            
+            if self.is_2d:
+                array = rotate(array, angle, reshape=False, order=order, mode='constant', cval=0)
+            else:
+                array = rotate(array, angle, axes=axes, reshape=False, order=order, mode='constant', cval=0)
+        
+        # Apply scaling
+        if params.get('scale') is not None:
+            scale_factor = params['scale']['factor']
+            original_shape = array.shape
+            zoom_factors = [scale_factor] * array.ndim
+            
+            array = zoom(array, zoom_factors, order=order, mode='constant', cval=0)
+            array = self._resize_to_shape(array, original_shape)
+        
+        return array
+    
+    def _rotate(self, 
+                image: np.ndarray, 
+                label: np.ndarray, 
+                angle: float,
+                axes: Optional[Tuple[int, int]] = None) -> Tuple[np.ndarray, np.ndarray]:
         """Apply rotation."""
         if self.is_2d:
             image_rot = rotate(image, angle, reshape=False, order=1, mode='constant', cval=0)
             label_rot = rotate(label, angle, reshape=False, order=0, mode='constant', cval=0)
         else:
-            # 3D rotation around random axis
-            axes = random.choice([(1, 2), (0, 2), (0, 1)])
             image_rot = rotate(image, angle, axes=axes, reshape=False, order=1, mode='constant', cval=0)
             label_rot = rotate(label, angle, axes=axes, reshape=False, order=0, mode='constant', cval=0)
         
@@ -94,7 +159,7 @@ class SpatialAugmenter:
         result[tuple(slices_dst)] = array[tuple(slices_src)]
         
         return result
-
+    
 
 class IntensityAugmenter:
     """Intensity augmentations for medical images."""
