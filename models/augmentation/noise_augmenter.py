@@ -7,8 +7,6 @@ import scipy.io as sio
 import random
 from scipy.ndimage import zoom
 from typing import Tuple
-from utils.noise_profile_manager import NoiseProfileManager
-
 
 import numpy as np
 import scipy.io as sio

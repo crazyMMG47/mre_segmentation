@@ -8,9 +8,9 @@
 # 3. Add the transformed noise of the subject to the spatially augmented image.
 
 
-from typing import Dict, Optional, Tuple, List, Union
-from basic_augment import SpatialAugmenter, IntensityAugmenter
-from noise_augmenter import NoiseAugmenter
+from typing import Dict, Optional, Tuple, List, Union, Any
+from .basic_augment import SpatialAugmenter, IntensityAugmenter
+from .noise_augmenter import NoiseAugmenter
 import random
 import numpy as np
 

@@ -1,0 +1,818 @@
+{
+  "train": [
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G030_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G030_mask.mat",
+      "subject_id": "G030",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G030_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G017_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G017_mask.mat",
+      "subject_id": "G017",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G017_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S021_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S021_mask.mat",
+      "subject_id": "S021",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S021_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S008_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S008_mask.mat",
+      "subject_id": "S008",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S008_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S047_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S047_mask.mat",
+      "subject_id": "S047",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S047_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S063_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S063_mask.mat",
+      "subject_id": "S063",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S053_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S053_mask.mat",
+      "subject_id": "S053",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S053_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S016_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S016_mask.mat",
+      "subject_id": "S016",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S016_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G052_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G052_mask.mat",
+      "subject_id": "G052",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G052_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G042_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G042_mask.mat",
+      "subject_id": "G042",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G042_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S066_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S066_mask.mat",
+      "subject_id": "S066",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S066_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S032_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S032_mask.mat",
+      "subject_id": "S032",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S032_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G022_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G022_mask.mat",
+      "subject_id": "G022",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G022_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S011_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S011_mask.mat",
+      "subject_id": "S011",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S011_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S064_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S064_mask.mat",
+      "subject_id": "S064",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S064_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G007_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G007_mask.mat",
+      "subject_id": "G007",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S014_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S014_mask.mat",
+      "subject_id": "S014",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S014_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S018_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S018_mask.mat",
+      "subject_id": "S018",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S018_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S035_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S035_mask.mat",
+      "subject_id": "S035",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S035_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G026_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G026_mask.mat",
+      "subject_id": "G026",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G026_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G011_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G011_mask.mat",
+      "subject_id": "G011",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G011_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G019_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G019_mask.mat",
+      "subject_id": "G019",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G019_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G024_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G024_mask.mat",
+      "subject_id": "G024",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G005_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G005_mask.mat",
+      "subject_id": "G005",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S034_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S034_mask.mat",
+      "subject_id": "S034",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S034_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G035_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G035_mask.mat",
+      "subject_id": "G035",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G035_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S037_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S037_mask.mat",
+      "subject_id": "S037",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S037_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S072_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S072_mask.mat",
+      "subject_id": "S072",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S072_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G034_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G034_mask.mat",
+      "subject_id": "G034",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G034_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G012_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G012_mask.mat",
+      "subject_id": "G012",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G012_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S019_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S019_mask.mat",
+      "subject_id": "S019",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S019_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S013_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S013_mask.mat",
+      "subject_id": "S013",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S013_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S039_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S039_mask.mat",
+      "subject_id": "S039",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S060_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S060_mask.mat",
+      "subject_id": "S060",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S060_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S015_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S015_mask.mat",
+      "subject_id": "S015",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S015_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S033_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S033_mask.mat",
+      "subject_id": "S033",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S033_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S023_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S023_mask.mat",
+      "subject_id": "S023",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S023_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G059_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G059_mask.mat",
+      "subject_id": "G059",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G059_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G025_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G025_mask.mat",
+      "subject_id": "G025",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S070_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S070_mask.mat",
+      "subject_id": "S070",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S070_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S002_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S002_mask.mat",
+      "subject_id": "S002",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S002_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G016_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G016_mask.mat",
+      "subject_id": "G016",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G016_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S062_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S062_mask.mat",
+      "subject_id": "S062",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G048_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G048_mask.mat",
+      "subject_id": "G048",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G048_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S071_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S071_mask.mat",
+      "subject_id": "S071",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S071_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G063_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G063_mask.mat",
+      "subject_id": "G063",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G063_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S044_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S044_mask.mat",
+      "subject_id": "S044",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S055_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S055_mask.mat",
+      "subject_id": "S055",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S055_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S005_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S005_mask.mat",
+      "subject_id": "S005",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S005_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S030_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S030_mask.mat",
+      "subject_id": "S030",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S030_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G037_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G037_mask.mat",
+      "subject_id": "G037",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G037_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G055_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G055_mask.mat",
+      "subject_id": "G055",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G055_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G032_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G032_mask.mat",
+      "subject_id": "G032",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G032_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S001_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S001_mask.mat",
+      "subject_id": "S001",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S001_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S050_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S050_mask.mat",
+      "subject_id": "S050",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S050_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S058_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S058_mask.mat",
+      "subject_id": "S058",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S058_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G013_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G013_mask.mat",
+      "subject_id": "G013",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G013_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S043_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S043_mask.mat",
+      "subject_id": "S043",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S041_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S041_mask.mat",
+      "subject_id": "S041",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S025_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S025_mask.mat",
+      "subject_id": "S025",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S025_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S046_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S046_mask.mat",
+      "subject_id": "S046",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S046_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S017_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S017_mask.mat",
+      "subject_id": "S017",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S017_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S049_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S049_mask.mat",
+      "subject_id": "S049",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S049_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G057_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G057_mask.mat",
+      "subject_id": "G057",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G057_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S026_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S026_mask.mat",
+      "subject_id": "S026",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S026_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G054_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G054_mask.mat",
+      "subject_id": "G054",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G054_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S009_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S009_mask.mat",
+      "subject_id": "S009",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S009_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G015_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G015_mask.mat",
+      "subject_id": "G015",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G015_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S059_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S059_mask.mat",
+      "subject_id": "S059",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S059_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S028_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S028_mask.mat",
+      "subject_id": "S028",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S028_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G047_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G047_mask.mat",
+      "subject_id": "G047",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G047_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G014_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G014_mask.mat",
+      "subject_id": "G014",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G014_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S038_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S038_mask.mat",
+      "subject_id": "S038",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S038_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S040_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S040_mask.mat",
+      "subject_id": "S040",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G060_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G060_mask.mat",
+      "subject_id": "G060",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G060_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G040_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G040_mask.mat",
+      "subject_id": "G040",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G040_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G027_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G027_mask.mat",
+      "subject_id": "G027",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G027_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G028_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G028_mask.mat",
+      "subject_id": "G028",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G028_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G039_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G039_mask.mat",
+      "subject_id": "G039",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G039_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G061_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G061_mask.mat",
+      "subject_id": "G061",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G061_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G031_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G031_mask.mat",
+      "subject_id": "G031",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G031_noise.mat"
+    }
+  ],
+  "val": [
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G056_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G056_mask.mat",
+      "subject_id": "G056",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G056_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S069_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S069_mask.mat",
+      "subject_id": "S069",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S069_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G053_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G053_mask.mat",
+      "subject_id": "G053",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G053_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G062_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G062_mask.mat",
+      "subject_id": "G062",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G062_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G010_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G010_mask.mat",
+      "subject_id": "G010",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S006_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S006_mask.mat",
+      "subject_id": "S006",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S006_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G049_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G049_mask.mat",
+      "subject_id": "G049",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G049_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G050_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G050_mask.mat",
+      "subject_id": "G050",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G050_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G046_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G046_mask.mat",
+      "subject_id": "G046",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G046_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G041_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G041_mask.mat",
+      "subject_id": "G041",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G041_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S004_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S004_mask.mat",
+      "subject_id": "S004",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S004_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S020_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S020_mask.mat",
+      "subject_id": "S020",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S020_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S061_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S061_mask.mat",
+      "subject_id": "S061",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S061_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G018_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G018_mask.mat",
+      "subject_id": "G018",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G018_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G021_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G021_mask.mat",
+      "subject_id": "G021",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G021_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G020_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G020_mask.mat",
+      "subject_id": "G020",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G020_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S024_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S024_mask.mat",
+      "subject_id": "S024",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S024_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S067_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S067_mask.mat",
+      "subject_id": "S067",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S067_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S056_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S056_mask.mat",
+      "subject_id": "S056",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S056_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G045_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G045_mask.mat",
+      "subject_id": "G045",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G045_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S048_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S048_mask.mat",
+      "subject_id": "S048",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S048_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G004_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G004_mask.mat",
+      "subject_id": "G004",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G043_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G043_mask.mat",
+      "subject_id": "G043",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G043_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G002_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G002_mask.mat",
+      "subject_id": "G002",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S045_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S045_mask.mat",
+      "subject_id": "S045",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G051_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G051_mask.mat",
+      "subject_id": "G051",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G051_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S068_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S068_mask.mat",
+      "subject_id": "S068",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S068_noise.mat"
+    }
+  ],
+  "test": [
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S065_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S065_mask.mat",
+      "subject_id": "S065",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S065_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S027_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S027_mask.mat",
+      "subject_id": "S027",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S027_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G038_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G038_mask.mat",
+      "subject_id": "G038",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G038_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S042_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S042_mask.mat",
+      "subject_id": "S042",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S057_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S057_mask.mat",
+      "subject_id": "S057",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S057_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S022_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S022_mask.mat",
+      "subject_id": "S022",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S022_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G006_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G006_mask.mat",
+      "subject_id": "G006",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S007_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S007_mask.mat",
+      "subject_id": "S007",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S007_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S029_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S029_mask.mat",
+      "subject_id": "S029",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S029_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G033_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G033_mask.mat",
+      "subject_id": "G033",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G033_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G058_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G058_mask.mat",
+      "subject_id": "G058",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G058_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G036_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G036_mask.mat",
+      "subject_id": "G036",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G036_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G009_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G009_mask.mat",
+      "subject_id": "G009",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G009_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G001_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G001_mask.mat",
+      "subject_id": "G001",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S003_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S003_mask.mat",
+      "subject_id": "S003",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S003_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S010_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S010_mask.mat",
+      "subject_id": "S010",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S010_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G029_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G029_mask.mat",
+      "subject_id": "G029",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G029_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S036_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S036_mask.mat",
+      "subject_id": "S036",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S036_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S031_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S031_mask.mat",
+      "subject_id": "S031",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S031_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G003_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G003_mask.mat",
+      "subject_id": "G003",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S052_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S052_mask.mat",
+      "subject_id": "S052",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S052_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S054_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S054_mask.mat",
+      "subject_id": "S054",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S054_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G044_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G044_mask.mat",
+      "subject_id": "G044",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G044_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G023_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G023_mask.mat",
+      "subject_id": "G023",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/G023_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S051_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S051_mask.mat",
+      "subject_id": "S051",
+      "noise_path": null
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/S012_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/S012_mask.mat",
+      "subject_id": "S012",
+      "noise_path": "/home/smooi/Desktop/toast/noise_augmentation/processed_noise/S012_noise.mat"
+    },
+    {
+      "image": "/home/smooi/Desktop/toast/data/toast_pipe_data/t2stack/G008_t2stack.nii",
+      "label": "/home/smooi/Desktop/toast/data/toast_pipe_data/mask/G008_mask.mat",
+      "subject_id": "G008",
+      "noise_path": null
+    }
+  ]
+}
