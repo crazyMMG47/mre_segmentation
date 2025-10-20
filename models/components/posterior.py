@@ -5,7 +5,7 @@ from typing import Tuple, List, Optional
 import torch 
 import torch.nn as nn
 from monai.netwprks.layers.simplelayers import SkipConnection
-
+from models.components.noise_encoder import NoiseEncoder
 
 # 3d posterior net 
 class PosteriorNet(nn.Module):
@@ -124,3 +124,128 @@ class SliceWisePosteriorNet(nn.Module):
         logvar = logvar.view(B, D, -1)
         
         return mu, logvar
+    
+    
+class SliceWiseNoisyPosterior(nn.Module):
+    """
+    2D Posterior network conditioned on image features, mask, AND noise profiles.
+    Produces slice-specific latent distributions informed by all three sources.
+    """
+    def __init__(
+        self,
+        feature_channels: int,
+        mask_channels: int,
+        latent_dim: int,
+        noise_feature_dim: int = 128,
+        spatial_dims: int = 3,
+        debug_checks: bool = True,
+        use_noise: bool = True
+    ):
+        super().__init__()
+        assert spatial_dims == 3, "SliceWiseNoisyPosterior requires 3D input"
+        
+        self.use_noise = use_noise
+        self.noise_feature_dim = noise_feature_dim
+        self.debug_checks = debug_checks
+        
+        # Shared noise encoder (should match the one in Prior)
+        if self.use_noise:
+            self.noise_encoder = NoiseEncoder(
+                input_channels=1,
+                base_channels=16,
+                noise_feature_dim=noise_feature_dim
+            )
+        
+        # 2D encoder for slice features + mask
+        self.slice_encoder = nn.Sequential(
+            nn.Conv2d(feature_channels + mask_channels, 256, kernel_size=3, padding=1),
+            nn.InstanceNorm2d(256),
+            nn.PReLU(),
+            nn.Conv2d(256, 256, kernel_size=3, padding=1),
+            nn.InstanceNorm2d(256),
+            nn.PReLU(),
+            nn.AdaptiveAvgPool2d(1),
+            nn.Flatten(),
+        )
+        
+        # Fusion layer: combine image+mask features with noise features
+        fusion_input_dim = 256 + (noise_feature_dim if self.use_noise else 0)
+        self.fusion = nn.Sequential(
+            nn.Linear(fusion_input_dim, 256),
+            nn.PReLU(),
+            nn.Dropout(0.1),
+            nn.Linear(256, 256),
+            nn.PReLU()
+        )
+        
+        # Latent distribution parameters
+        self.fc_mu = nn.Linear(256, latent_dim)
+        self.fc_logvar = nn.Linear(256, latent_dim)
+        
+    def forward(
+        self,
+        features: torch.Tensor,
+        mask: torch.Tensor,
+        noise: Optional[torch.Tensor] = None
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
+        """
+        Args:
+            features: [B, C, D, H, W] from UNet encoder
+            mask: [B, M, D, H, W] ground truth segmentation
+            noise: [B, 1, D, H, W] noise profiles (optional, if use_noise=True)
+        Returns:
+            mu: [B, D, Z] - mean of latent distribution per slice
+            logvar: [B, D, Z] - log variance of latent distribution per slice
+        """
+        B, C, D, H, W = features.shape
+        
+        # Check noise input if required
+        if self.use_noise:
+            assert noise is not None, "Noise input required when use_noise=True"
+            assert noise.shape == (B, 1, D, H, W), \
+                f"Expected noise shape [B, 1, D, H, W], got {noise.shape}"
+        
+        # Concatenate features and mask
+        x = torch.cat([features, mask], dim=1)  # [B, C+M, D, H, W]
+        
+        # Reshape to process all slices in parallel: [B*D, C+M, H, W]
+        x = x.permute(0, 2, 1, 3, 4).contiguous()
+        x = x.view(B * D, -1, H, W)
+        
+        # Encode image+mask slices
+        image_mask_features = self.slice_encoder(x)  # [B*D, 256]
+        
+        # Process noise if available
+        if self.use_noise and noise is not None:
+            # Reshape noise: [B*D, 1, H, W]
+            noise_slices = noise.permute(0, 2, 1, 3, 4).contiguous()
+            noise_slices = noise_slices.view(B * D, 1, H, W)
+            
+            # Encode noise
+            noise_features = self.noise_encoder(noise_slices)  # [B*D, noise_feature_dim]
+            
+            # Concatenate all features
+            combined = torch.cat([image_mask_features, noise_features], dim=1)  # [B*D, 256 + noise_feature_dim]
+        else:
+            combined = image_mask_features
+        
+        # Fuse features
+        fused = self.fusion(combined)  # [B*D, 256]
+        
+        # Generate latent distribution parameters
+        mu = self.fc_mu(fused)         # [B*D, Z]
+        logvar = self.fc_logvar(fused) # [B*D, Z]
+        
+        # Reshape back to [B, D, Z]
+        mu = mu.view(B, D, -1)
+        logvar = logvar.view(B, D, -1)
+        
+        if self.debug_checks:
+            print(f"[NoisyPosteriorNet] Output shapes - mu: {mu.shape}, logvar: {logvar.shape}")
+            if self.use_noise:
+                print(f"[NoisyPosteriorNet] Noise conditioning: ENABLED")
+            else:
+                print(f"[NoisyPosteriorNet] Noise conditioning: DISABLED")
+        
+        return mu, logvar
+

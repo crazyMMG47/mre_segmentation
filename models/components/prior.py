@@ -5,7 +5,7 @@ from typing import Tuple, List, Optional
 import torch 
 import torch.nn as nn
 from monai.netwprks.layers.simplelayers import SkipConnection
-
+from models.components.noise_encoder import NoiseEncoder
 
 # global 3D prior net 
 class PriorNet(nn.Module):
@@ -155,6 +155,131 @@ class SliceWisePriorNet(nn.Module):
         # Reshape back to [B, D, Z]
         mu = mu.view(B, D, -1)
         logvar = logvar.view(B, D, -1)
+        
+        return mu, logvar
+    
+    
+# Make a new prior net that combines the noise profile 
+class SliceWiseNoisyPrior(nn.Module):
+    """
+    2D Prior network conditioned on both image features AND noise profiles.
+    Produces slice-specific latent distributions informed by uncertainty patterns.
+    """
+    def __init__(
+        self,
+        feature_channels: int,
+        latent_dim: int,
+        noise_feature_dim: int = 128,
+        spatial_dims: int = 3,
+        debug_checks: bool = True,
+        use_noise: bool = True
+    ):
+        super().__init__()
+        assert spatial_dims == 3, "SliceWiseNoisyPrior requires 3D input"
+        
+        self.use_noise = use_noise
+        self.noise_feature_dim = noise_feature_dim
+        self.debug_checks = debug_checks
+        
+        # Noise encoder
+        if self.use_noise:
+            self.noise_encoder = NoiseEncoder(
+                input_channels=1,
+                base_channels=16,
+                noise_feature_dim=noise_feature_dim
+            )
+        
+        # 2D encoder for image slice features
+        self.slice_encoder = nn.Sequential(
+            nn.Conv2d(feature_channels, 256, kernel_size=3, padding=1),
+            nn.InstanceNorm2d(256),
+            nn.PReLU(),
+            nn.Conv2d(256, 256, kernel_size=3, padding=1),
+            nn.InstanceNorm2d(256),
+            nn.PReLU(),
+            nn.AdaptiveAvgPool2d(1),
+            nn.Flatten(),
+        )
+        
+        # Fusion layer: combine image and noise features
+        fusion_input_dim = 256 + (noise_feature_dim if self.use_noise else 0)
+        self.fusion = nn.Sequential(
+            nn.Linear(fusion_input_dim, 256),
+            nn.PReLU(),
+            nn.Dropout(0.1),
+            nn.Linear(256, 256),
+            nn.PReLU()
+        )
+        
+        # Latent distribution parameters
+        self.fc_mu = nn.Linear(256, latent_dim)
+        self.fc_logvar = nn.Linear(256, latent_dim)
+        
+    def forward(
+        self,
+        features: torch.Tensor,
+        noise: Optional[torch.Tensor] = None
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
+        """
+        Args:
+            features: [B, C, D, H, W] from UNet encoder
+            noise: [B, 1, D, H, W] noise profiles (optional, if use_noise=True)
+        Returns:
+            mu: [B, D, Z] - mean of latent distribution per slice
+            logvar: [B, D, Z] - log variance of latent distribution per slice
+        """
+        B, C, D, H, W = features.shape
+        
+        if self.debug_checks:
+            _assert_slice_order_preserved("NoisyPriorNet", features)
+        
+        # Check noise input if required
+        if self.use_noise:
+            assert noise is not None, "Noise input required when use_noise=True"
+            assert noise.shape == (B, 1, D, H, W), \
+                f"Expected noise shape [B, 1, D, H, W], got {noise.shape}"
+        
+        # Reshape features to process all slices: [B*D, C, H, W]
+        image_slices = features.permute(0, 2, 1, 3, 4).contiguous()
+        image_slices = image_slices.view(B * D, C, H, W)
+        
+        if self.debug_checks:
+            _check_BD_match("NoisyPriorNet", B, D, image_slices)
+        
+        # Encode image slices
+        image_features = self.slice_encoder(image_slices)  # [B*D, 256]
+        
+        # Process noise if available
+        if self.use_noise and noise is not None:
+            # Reshape noise: [B*D, 1, H, W]
+            noise_slices = noise.permute(0, 2, 1, 3, 4).contiguous()
+            noise_slices = noise_slices.view(B * D, 1, H, W)
+            
+            # Encode noise
+            noise_features = self.noise_encoder(noise_slices)  # [B*D, noise_feature_dim]
+            
+            # Concatenate image and noise features
+            combined = torch.cat([image_features, noise_features], dim=1)  # [B*D, 256 + noise_feature_dim]
+        else:
+            combined = image_features
+        
+        # Fuse features
+        fused = self.fusion(combined)  # [B*D, 256]
+        
+        # Generate latent distribution parameters
+        mu = self.fc_mu(fused)         # [B*D, Z]
+        logvar = self.fc_logvar(fused) # [B*D, Z]
+        
+        # Reshape back to [B, D, Z]
+        mu = mu.view(B, D, -1)
+        logvar = logvar.view(B, D, -1)
+        
+        if self.debug_checks:
+            print(f"[NoisyPriorNet] Output shapes - mu: {mu.shape}, logvar: {logvar.shape}")
+            if self.use_noise:
+                print(f"[NoisyPriorNet] Noise conditioning: ENABLED")
+            else:
+                print(f"[NoisyPriorNet] Noise conditioning: DISABLED")
         
         return mu, logvar
     
